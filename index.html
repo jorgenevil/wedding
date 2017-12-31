@@ -118,9 +118,16 @@
 
   container.appendChild(inner);
 
+  var innerPlaceholder = document.createElement('div');
+      innerPlaceholder.className = 'anim-container';
+
   var imgPlaceholder = document.createElement('img');
       imgPlaceholder.src = 'f1.png';
-      inner.appendChild(imgPlaceholder);
+      imgPlaceholder.setAttribute('style', 'left: 0; top: 0;');
+
+      innerPlaceholder.appendChild(imgPlaceholder);
+
+  container.appendChild(innerPlaceholder);
 
   var options = {
     frames: 51,
@@ -135,7 +142,7 @@
   var t0 = performance.now();
 
   img.onload = function() { 
-    inner.innerHTML = '';
+    // inner.innerHTML = '';
     this.setAttribute('style', 'left: 0; top: 0;');
     inner.appendChild(this);
     options.img = this;
@@ -145,7 +152,7 @@
     if (delay < 0) delay = 0;
     setTimeout(function() { animate(options) }, delay)
   }
-  img.src = 'animation-sprite.png';
+  img.src = 'animation-sprite-2.png';
 
   function animate(options) {
     var count = 0;
