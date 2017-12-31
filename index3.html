@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+	<title>Layal & Jørgen</title>
+	<style type="text/css">
+		body {
+      padding: 0;
+      margin: 0;
+    }
+
+    .container {
+      position: absolute;
+      min-height: 100%;
+      min-width: 100%;
+      background-color: red;
+
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+    }
+
+    .backgroundImage {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+    }
+
+    .backgroundImage img {
+      width: 100%;
+      height: 100%;
+    }
+
+    #take-me {
+      position: relative;
+      width: 650px;
+      height: 700px;
+      margin-top: 20px;
+      -webkit-box-flex: 0;
+      -webkit-flex: none;
+      -ms-flex: none;
+      flex: none;
+    }
+
+    .anim-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 650px;
+      height: 650px;
+      overflow: hidden;
+    }
+
+    .anim-container img {
+      position: absolute;
+    }
+
+    .text-container {
+      position: absolute;
+      right: 0;
+      bottom: 15px;
+      color: white;
+      width: 100%;
+      text-align: center;
+      opacity: 0;
+      -webkit-transition: opacity 1s;
+      transition: opacity 1s;
+    }
+
+
+	</style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="backgroundImage">
+      <img src="sunset.jpg">
+    </div>
+    <div id="take-me"></div>
+  </div>
+
+  
+
+</body>
+
+<script type="text/javascript">
+  
+  var container = document.getElementById('take-me');
+  var inner = document.createElement('div');
+      inner.className = 'anim-container';
+
+  container.appendChild(inner);
+
+  var imgPlaceholder = document.createElement('img');
+      imgPlaceholder.src = 'f1.png';
+      inner.appendChild(imgPlaceholder);
+
+  var options = {
+    frames: 51,
+    speed: 100,
+    width: 650,
+    height: 650,
+    itemsWidth: 10,
+    delay: 2000
+  }
+
+  var img = new Image();
+  var t0 = performance.now();
+
+  img.onload = function() { 
+    inner.innerHTML = '';
+    this.setAttribute('style', 'left: 0; top: 0;');
+    inner.appendChild(this);
+    options.img = this;
+    var t1 = performance.now();
+    var timing = Math.round(t1-t0);
+    var delay = options.delay-timing;
+    if (delay < 0) delay = 0;
+    setTimeout(function() { animate(options) }, delay)
+  }
+  img.src = 'animation-sprite.png';
+
+  function animate(options) {
+    var count = 0;
+    var row = 0;
+    var int = setInterval(function() {
+      if (isInt(count/options.itemsWidth) && count !== 0) row ++;
+      var mathCount = count - (row*options.itemsWidth);
+      var left = mathCount*options.width;
+      var top = row*options.height;
+      var style = 'left: -' + left + 'px; top: -' + top + 'px;';
+      options.img.setAttribute('style', style)
+      count ++;
+      if (count === options.frames) {
+        clearInterval(int);
+        var textContainer = document.createElement('div');
+            textContainer.className = 'text-container';
+            textContainer.innerHTML = 'More information to come';
+            container.appendChild(textContainer);
+            setTimeout(function() { textContainer.setAttribute('style', 'opacity: 1') }, 150);
+      }
+    }, options.speed)
+  };
+
+  function isInt(n) { return n % 1 === 0; };
+
+</script>
+
+</html>
+
+
