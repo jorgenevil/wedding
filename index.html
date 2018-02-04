@@ -112,6 +112,11 @@
 </body>
 
 <script type="text/javascript">
+
+  var location = window.location.href;
+  if (location === 'http://jandl.wedding/') {
+    window.location = "http://jorgenandlayal.com";
+  }
   
   var container = document.getElementById('take-me');
   var inner = document.createElement('div');
