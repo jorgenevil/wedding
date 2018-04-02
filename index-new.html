@@ -6,14 +6,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script type="text/javascript" src="mapStyles.js"></script>
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyCrMFEHgsaDi08TrpKhelLPrrekG-suUI8&callback=initMap" async defer></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i" rel="stylesheet">
+  <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
 	<title>Layal & Jørgen</title>
 	<style type="text/css">
+
+    * {
+      box-sizing: border-box;
+    }
+
 		body {
       padding: 0;
       margin: 0;
+      font-family: 'Roboto', sans-serif;
+      min-width: 750px;
+      /*position: relative;*/
     }
 
-    .container {}
+    .container {
+       /*min-width: 800px;*/
+       overflow: hidden; 
+       position: relative;
+    }
+
+
+    .bred-text {
+      padding-bottom: 30px;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 32px;
+      color: #063f3f;
+    }
 
     .backgroundImage {
       position: fixed;
@@ -61,11 +87,11 @@
       line-height: 1.5;
     }
 
-    @media screen and (max-width: 700px) and (min-width: 600px) {
+/*    @media screen and (max-width: 700px) and (min-width: 600px) {
       #take-me { zoom: 0.8; }
     }
-
-    @media screen and (max-width: 599px) and (min-width: 500px) {
+*/
+/*    @media screen and (max-width: 599px) and (min-width: 500px) {
       #take-me { zoom: 0.7; }
     }
 
@@ -75,19 +101,21 @@
 
     @media screen and (max-width: 399px) {
       #take-me { zoom: 0.5; }
-    }
+    }*/
 
     .top-section {
       position: absolute;
       top: 0;
       width: 100%;
+      min-width: 750px;
       height: 130px;
       background: rgba(255,255,255,0.2);
       text-align: center;
       color: white;
-      font-family: sans-serif;
+      /*font-family: sans-serif;*/
       font-weight: 300;
       z-index: 999;
+
       box-shadow: 0 0 1px 0px rgb(1, 46, 53);
     }
 
@@ -129,7 +157,9 @@
     }
 
     .animation-wrapper {
-
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .section {
@@ -139,6 +169,7 @@
     }
 
     .section h1 {
+      font-family: 'PT Serif', serif;
       font-size: 68px;
       color: #053f3f;
     }
@@ -151,7 +182,7 @@
       position: absolute;
       left: 40px;
       top: 32px;
-      font-family: sans-serif;
+      /*font-family: sans-serif;*/
       text-shadow: -1px 1px 2px rgba(0,0,0,0.5);
     }
 
@@ -276,7 +307,7 @@
     }
 
     .story-map-text {
-      font-size: 20px;
+      font-size: 18px;
       line-height: 1.6;
       position: absolute;
       top: 100px;
@@ -356,7 +387,8 @@
       <div class="link-bar">
         <a class="link" href="#our-story">Our Story</a>
         <a class="link" href="#rsvp">RSVP</a>
-        <a class="link" href="#when-and-where">When And Where</a>
+        <a class="link" href="#the-wedding">The Wedding</a>
+        <a class="link" href="#where-to-stay">Where To Stay</a>
         <a class="link" href="#registry">Registry</a>
         <a class="link" href="#questions">Questions</a>
         <!-- <div class="link">Pictures</div> -->
@@ -382,7 +414,7 @@
             <div class="story-map-picture">
               <img src="images/map1.png">
             </div>
-            <div class="story-map-text">We were pretty cute babes...<br/>Born in two complete places.</div>
+            <div class="story-map-text">We were pretty cute babes...<br/>born in two different worlds.</div>
           </div>
 
           <div class="story-left-right">
@@ -414,7 +446,7 @@
             </div>
               <div class="story-map-text">
                 Layal move to Abu Dhabi<br/>
-                Because of war and stuff
+                because of war and stuff.
               </div>
           </div>
 
@@ -446,8 +478,8 @@
               <img src="images/map3.png">
             </div>
               <div class="story-map-text">
-                Layal move to USA<br/>
-                It turned out that both Jørgen and Layal were complete nerds.
+                Layal move to USA.<br/>
+                Both Jørgen and Layal turned out as complete nerds.
               </div>
           </div>
 
@@ -478,8 +510,8 @@
               <img src="images/map4.png">
             </div>
               <div class="story-map-text">
-                Jørgen move to London.<br/>
-                And become a complete hipster
+                Jørgen move to London<br/>
+                and become a complete hipster.
               </div>
           </div>
 
@@ -511,8 +543,8 @@
               <img src="images/map5.png">
             </div>
               <div class="story-map-text">
-                Both Jørgen and Layal move to Lebanon<br/>
-                It was pretty cool
+                Both Jørgen and Layal move to Lebanon.<br/>
+                There they were pretty cool.
               </div>
           </div>
 
@@ -609,41 +641,52 @@
           <h1>RSVP</h1>
           <div
             style="
-              position: relative;
-              overflow: hidden;
-              width: 640px;
-              height: 772px;
-              left: 170px;
-              margin-bottom: 100px;
-              box-shadow: 4px 4px 0 0 rgba(0,0,0,0.2);
+              display: flex;
+              align-items: center;
+              justify-content: center;
             "
           >
             <div
               style="
                 position: relative;
-                left: -130px;
-                top: -178px;
-                width: 770px;
                 overflow: hidden;
+                width: 640px;
+                height: 772px;
+                /*left: 170px;*/
+                margin-bottom: 100px;
+                box-shadow: 4px 4px 0 0 rgba(0,0,0,0.2);
+                /*display: flex;*/
+                /*align-items: center;*/
+                /*justify-content: center;*/
               "
-            >
-              <iframe 
-                src="https://docs.google.com/forms/d/e/1FAIpQLSfUtttJ1txhz_6_fT5ALpC0KTBswe0aBvt8zYcupINbeafcaQ/viewform?embedded=true" 
-                width="900"
-                height="1200" 
-                frameborder="0" 
-                marginheight="0" 
-                marginwidth="0">
-                  Loading...
-              </iframe>
+              >
+              <div
+                style="
+                  position: relative;
+                  left: -130px;
+                  top: -178px;
+                  width: 770px;
+                  overflow: hidden;
+                "
+              >
+                <iframe 
+                  src="https://docs.google.com/forms/d/e/1FAIpQLSfUtttJ1txhz_6_fT5ALpC0KTBswe0aBvt8zYcupINbeafcaQ/viewform?embedded=true" 
+                  width="900"
+                  height="1200" 
+                  frameborder="0" 
+                  marginheight="0" 
+                  marginwidth="0">
+                    Loading...
+                </iframe>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="section blue-bg" id="when-and-where">
+      <div class="section blue-bg" id="the-wedding">
         <div class="section-inner">
-          <h1>When and Where</h1>
+          <h1>The Wedding</h1>
 
           <div class="location">
             <div class="location-time">
@@ -666,15 +709,215 @@
         </div>
       </div>
 
-      <div class="section white-bg" id="registry">
+      <style type="text/css">
+
+        #where-to-stay {
+          padding-bottom: 75px;
+        }
+
+        .hotel-option-wrapper {
+          color: #053f3f;
+        }
+
+        .hotel-option-wrapper h3 {
+          font-family: 'PT Serif', serif;
+          font-size: 36px;
+        }
+
+        .hotel-option-content {
+          font-size: 18px;
+          line-height: 24px;
+          padding-bottom: 30px;
+          opacity: .8;
+        }
+
+        .hotel-stars {
+          padding-top: 10px;
+          font-size: 30px;
+          color: #e77200;
+        }
+
+        .hotel-option-content a,
+        .hotel-option-content a:hover,
+        .hotel-option-content a:active {
+          text-decoration: none;
+        }
+
+      </style>
+
+      <div class="section white-bg" id="where-to-stay">
+        <div class="section-inner">
+          <h1>Where To Stay</h1>
+
+          <div class="bred-text">
+            Option one and two are right next to each other. Literally.<br/>
+            Option three is a ten minute drive from option one and two.<br/>
+            We'll be providing transportation from these locations to the venue.<br/>
+            <!-- We couldn't find any four or five star hotels in the area.<br/><br/> -->
+            
+            <br/>
+
+            Airbnb has beautiful homes in the area as well.<br/>
+            If you have a larger group or want a little more luxury,<br/>
+            you can Airbnb and easily Über to the venue.<br/>
+
+            <br/>
+
+            Locations for Airbnb are Wildomar and La Cresta, California.
+
+
+          </div>
+
+          <div class="hotel-option-wrapper">
+
+            <h3>Option One
+              <div class="hotel-stars">
+                <i class="icon-star"></i>
+                <i class="icon-star"></i>
+                <i class="icon-star"></i>
+                <i class="icon-star-empty"></i>
+                <i class="icon-star-empty"></i>
+              </div>
+            </h3>
+
+            <div class="hotel-option-content">
+              Courtyard by Marriott, Temecula/Murrieta<br/>
+              25419 Madison Avenue<br/>
+              Murrieta, CA 92562<br/>
+              <br/>
+              <a 
+                href="http://www.marriott.com/hotels/travel/onttc-courtyard-temecula-murrieta/"
+                target="_blank">
+                Hotel Website
+              </a>
+              <br/>
+                +1 951-698-1300
+              <br/>
+            </div>
+          </div>
+
+          <div class="hotel-option-wrapper">
+            <h3>Option Two
+              <div class="hotel-stars">
+                <i class="icon-star"></i>
+                <i class="icon-star"></i>
+                <i class="icon-star"></i>
+                <i class="icon-star-empty"></i>
+                <i class="icon-star-empty"></i>
+              </div>
+            </h3>
+
+            <div class="hotel-option-content">
+              Residence Inn by Marriott Temecula/Murrieta<br/>
+              25407 Madison Ave<br/>
+              Murrieta, CA 92562<br/>
+              <br/>
+              <a 
+                href="http://www.marriott.com/hotels/travel/onttm-residence-inn-temecula-murrieta/"
+                target="_blank">
+                Hotel website
+              </a>
+              <br/>
+                +1 951-698-6300
+              <br/>
+            </div>
+          </div>
+
+<!--           <div class="hotel-option-wrapper">
+            <h3>Option Three</h3>
+
+            <div class="hotel-option-content">
+              Fairfield Inn & Suites Temecula<br/>
+              27416 Jefferson Ave<br/>
+              Temecula, CA 92590
+
+              <br/>
+              <a 
+                href="http://www.marriott.com/hotels/travel/ontrt-fairfield-inn-and-suites-temecula/"
+                target="_blank">
+                Hotel website
+              </a>
+              <br/>
+                +1 951-587-9800
+              <br/>
+            </div>
+
+          </div> -->
+
+          <div class="hotel-option-wrapper">
+            <h3>Option Three
+              <div class="hotel-stars">
+                <i class="icon-star"></i>
+                <i class="icon-star"></i>
+                <i class="icon-star"></i>
+                <i class="icon-star-empty"></i>
+                <i class="icon-star-empty"></i>
+              </div>
+            </h3>
+
+            <div class="hotel-option-content">
+              Embassy Suites by Hilton<br/>
+              Temecula Valley Wine Country<br/>
+              29345 Rancho California Rd<br/>
+              Temecula, CA 92591<br/>
+              <br/>
+              <a 
+                href="http://www.estemecula.com/"
+                target="_blank">
+                Hotel website
+              </a>
+              <br/>
+                +1 951-676-5656
+              <br/>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <div class="section blue-bg" id="registry">
         <div class="section-inner">
           <h1>Registry</h1>
         </div>  
       </div>
 
-      <div class="section white-bg" id="questions">
+      <div 
+        class="section white-bg"
+        id="questions"
+        style="padding-bottom: 75px" 
+        >
         <div class="section-inner">
           <h1>Question?</h1>
+
+          <div class="bred-text">
+            This happens to be the first time we plan a wedding,<br/>
+            so we might have missed some information that might be crucial to you.<br/>
+            Don't be shy, write us anytime. Even if you think it's a dumb question.<br/>
+            <br/>
+            wedding@jorgenandlayal.com
+
+          </div>
+
+        </div>
+      </div>
+
+      <div 
+        class="section blue-bg"
+        id="footer"
+        >
+        <div class="section-inner">
+          <h1>&nbsp;</h1>
+
+<!--           <div class="bred-text">
+            This happens to be the first time we plan a wedding,<br/>
+            so we might have missed some information that might be crucial to you.<br/>
+            Don't be shy, write us anytime. Even if you think it's a dumb question.<br/>
+            <br/>
+            wedding@jorgenandlayal.com
+
+          </div> -->
+
         </div>  
       </div>
 
@@ -889,7 +1132,10 @@
       icon: 'images/heartIcon.png',
       title: '<3'
     });
-  }
+
+  };
+
+
     
 
 </script>
