@@ -3,34 +3,85 @@
 <head>
   <meta charset="utf-8">
   <meta name="google-site-verification" content="_Qm7wK6Y3q1ZU-wlY8iVy-dFd5LxJKF5lMd4kWoDcM8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="viewport" content="width=device-width" initial-scale="1">
+  <!-- <meta name="viewport" content="width=750" initial-scale="1"> -->
+  
+  <script type="text/javascript" src="mapStyles.js"></script>
+  <script type="text/javascript">
+    var map;
+    function initMap() {
+
+      var latLng = {lat: 33.4992545, lng: -117.3375827};
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: latLng,
+        zoom: 9,
+        fullscreenControl: false,
+        mapTypeControl: false,
+        streetViewControl: false,
+        scrollwheel: false,
+        styles: mapStyle.ultra_light
+      });
+
+
+      var marker = new google.maps.Marker({
+        position: latLng,
+        map: map,
+        icon: 'images/heartIcon.png',
+        title: '<3'
+      });
+
+    };
+  </script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyCrMFEHgsaDi08TrpKhelLPrrekG-suUI8&callback=initMap" async defer></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i" rel="stylesheet">
+  <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
 	<title>Layal & Jørgen</title>
 	<style type="text/css">
+
+    * {
+      box-sizing: border-box;
+    }
+
 		body {
       padding: 0;
       margin: 0;
+      font-family: 'Roboto', sans-serif;
+      min-width: 750px;
+      color: #053f3f;
+      /*position: relative;*/
     }
 
     .container {
-      position: absolute;
-      min-height: 100%;
-      min-width: 100%;
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-align: center;
-      -webkit-align-items: center;
-      -ms-flex-align: center;
-      align-items: center;
-      -webkit-box-pack: center;
-      -webkit-justify-content: center;
-      -ms-flex-pack: center;
-      justify-content: center;
+       /*min-width: 800px;*/
+       overflow: hidden; 
+       position: relative;
+    }
+
+
+    p, .bred-text {
+      padding-bottom: 30px;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 32px;
+      color: #063f3f;
+    }
+
+    strong {
+      font-weight: 900 !important;
+    }
+
+    h4 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #073f3f;
     }
 
     .backgroundImage {
-      position: absolute;
+      position: fixed;
       width: 100%;
       height: 100%;
       left: 0;
@@ -44,21 +95,17 @@
 
     #take-me {
       position: relative;
-      width: 650px;
-      height: 700px;
-      margin-top: 20px;
-      -webkit-box-flex: 0;
-      -webkit-flex: none;
-      -ms-flex: none;
-      flex: none;
+      width: 520px;
+      height: 520px;
+      margin: auto;
     }
 
     .anim-container {
       position: absolute;
       top: 0;
       left: 0;
-      width: 650px;
-      height: 650px;
+      width: 520px;
+      height: 520px;
       overflow: hidden;
     }
 
@@ -79,11 +126,11 @@
       line-height: 1.5;
     }
 
-    @media screen and (max-width: 700px) and (min-width: 600px) {
+/*    @media screen and (max-width: 700px) and (min-width: 600px) {
       #take-me { zoom: 0.8; }
     }
-
-    @media screen and (max-width: 599px) and (min-width: 500px) {
+*/
+/*    @media screen and (max-width: 599px) and (min-width: 500px) {
       #take-me { zoom: 0.7; }
     }
 
@@ -93,8 +140,275 @@
 
     @media screen and (max-width: 399px) {
       #take-me { zoom: 0.5; }
+    }*/
+
+    .top-section {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      min-width: 750px;
+      height: 130px;
+      background: rgba(255,255,255,0.2);
+      text-align: center;
+      color: white;
+      /*font-family: sans-serif;*/
+      font-weight: 300;
+      z-index: 999;
+
+      box-shadow: 0 0 1px 0px rgb(1, 46, 53);
     }
 
+    .fixed-header {
+      position: fixed;
+      top: -92px;
+    }
+
+    .header {
+      padding: 25px;
+    }
+
+    .link-bar {
+      border-top: 1px solid;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .link-bar .link {
+      padding: 10px 20px;
+      cursor: pointer;
+      color: rgba(255,255,255,1);
+      opacity: .6;
+      transition: opacity 250ms ease;
+    }
+
+    a.link {
+      text-decoration: none;
+    }
+
+    a, a:active, a:hover {
+      text-decoration: none;
+      color: #1457c3;
+    }
+
+    .link-bar .link:hover {
+      opacity: 1;
+    }
+
+    .middle-section {
+        position: relative;
+        top: 170px; 
+    }
+
+    .animation-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .section {
+      position: relative;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .section h1 {
+      font-family: 'PT Serif', serif;
+      font-size: 68px;
+      /*color: #053f3f;*/
+    }
+
+    .section h2 {
+      font-size: 36px;
+      color: white;
+      margin: 0;
+      text-align: left;
+      position: absolute;
+      left: 40px;
+      top: 32px;
+      /*font-family: sans-serif;*/
+      text-shadow: -1px 1px 2px rgba(0,0,0,0.5);
+    }
+
+    .section-inner {
+      position: relative;
+      max-width: 980px;
+      margin: auto;
+    }
+
+    .story-left-right {
+      position: relative;
+      margin-bottom: 75px;
+      margin-top: -30px;
+      /*margin-top: -24px;*/
+    /*padding-top: 20px;*/
+    }
+
+/*    .story-left-right:before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      width: 2px;
+      height: 100%;
+      background-color: gray;
+      opacity: .2;
+      top: 0;
+    }*/
+
+    .story-left,
+    .story-right {
+      display: inline-block;
+      vertical-align: top;
+      /*padding: 20px;*/
+      /*padding-bottom: 50px;*/
+      width: 48%;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 100;
+    }
+
+    .story-left {
+      padding-right: 20px;
+      transform: rotate(-1deg);    
+    }
+
+    .story-right {
+      padding-left: 20px;
+      transform: rotate(1deg);
+    }
+
+/*    .story-left:last-child,
+    .story-right:last-child {
+      padding-bottom: 0;
+    }
+*/
+/*    .story-left:after,
+    .story-right:after { 
+      content: '';
+      position: absolute;
+      width: 3px;
+      height: 100%;
+      top: 0;
+      z-index: -1;
+    }
+
+    .story-left:after {
+      background-color: red;
+    }
+
+    .story-right:after { 
+      background-color: blue;
+    }*/
+
+    .story-center {
+      position: relative;
+      padding: 20px;
+    }
+
+    .story-map-picture img {
+      width: 100%;
+    }
+
+    .story-picture {
+      max-width: 100%;
+      padding: 10px;
+      background-color: #fff;
+      /*box-shadow: 0px 2px 2px 0 rgba(0,0,0,0.2);*/
+      box-shadow: 4px 4px 0 0 rgba(0,0,0,0.2);
+      border-radius: 2px;
+    }
+
+    .story-picture img {
+      max-width: 100%;
+    }
+
+    .story-caption {
+
+    }
+
+    .white-bg {
+      background: white;
+    }
+
+    .offwhite-bg {
+      background-color: #f9f9f9;
+    }
+
+    .blue-bg {
+      background: lightblue;
+    }
+
+    .peach-bg {
+      background: peachpuff;
+    }
+
+    .story-text {
+      margin-bottom: 70px;
+      font-size: 20px;
+      color: #545353;
+      margin-top: 10px;
+      line-height: 1.75;
+    }
+
+    .story-map-text {
+      font-size: 18px;
+      line-height: 1.6;
+      position: absolute;
+      top: 100px;
+      left: 44px;
+      background: rgba(255,255,255,0.8);
+      padding: 15px 30px;
+      color: gray;
+      text-align: left;
+    }
+
+/*    #map {
+      position: absolute;
+      width: 100%;
+      height: 500px;
+      background-color: white;
+    }
+*/
+
+  .map-frame {
+    width: 100%;
+    /* height: 100%; */
+    min-height: 550px;
+    position: relative;
+    margin-bottom: 75px;
+    padding: 0px;
+    box-sizing: border-box;
+  }
+
+  .map-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+      /*z-index: 10;*/
+      /*position: absolute;*/
+      /*top: 50px;*/
+      /*left: 50px;*/
+      /*width: 390px;*/
+      /*background-color: black;*/
+      /*color: #FFF;*/
+  }
+
+  .location {
+    text-align: center;
+    margin-bottom: 70px;
+    color: white;
+    line-height: 1.5;
+    /*text-shadow: -1px 1px 0 rgba(0,0,0,0.2)*/
+  }
+
+  .location-time {
+     font-size: 28px;
+     margin-bottom: 50px;
+  }
+
+  .location-place {
+    font-size: 20px;
+  }
 
 	</style>
 </head>
@@ -105,7 +419,650 @@
     <div class="backgroundImage">
       <img src="sunset.jpg">
     </div>
-    <div id="take-me"></div>
+
+
+
+
+    <div class="top-section" id="top-section">
+      <div class="header">
+        <!-- Jørgen Ekvoll & Layal Hasrouni -->
+        <img src="jandl.png">
+      </div>
+      <div class="link-bar">
+        <!-- <a class="link" href="#our-story">Our Story</a> -->
+        <!-- <a class="link" href="#rsvp">RSVP</a> -->
+        <a class="link" href="#the-wedding">The Wedding</a>
+				<a class="link" href="#travel">Travel</a>
+        <a class="link" href="#where-to-stay">Where To Stay</a>
+        <!-- <a class="link" href="#registry">Registry</a> -->
+        <a class="link" href="#questions">Questions</a>
+      </div>
+    </div>
+
+    <div class="middle-section">
+      <div class="animation-wrapper" id="animation-wrapper">
+        <div id="take-me"></div>
+      </div>
+
+      <!-- OUR STORY -->
+<!--       <div class="section offwhite-bg" id="our-story">
+        
+        <div class="section-inner">
+
+          <h1>Our Story</h1>
+
+          <div class="story-center">
+            <h2>EARLY 80s</h2>
+            <div class="story-map-picture">
+              <img src="images/map1.png">
+            </div>
+            <div class="story-map-text">We were pretty cute babes...<br/>born in two different worlds.</div>
+          </div>
+
+          <div class="story-left-right">
+
+            <div class="story-left ">
+              <div class="story-picture">
+                <div class="story-caption">
+                </div>
+              </div>
+            </div>
+
+            <div class="story-right ">
+              <div class="story-picture">
+                <div class="story-caption">
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+
+          <div class="story-center">
+            <h2>1987</h2>
+            <div class="story-map-picture">
+              <img src="images/map2.png">
+            </div>
+              <div class="story-map-text">
+                Layal move to Abu Dhabi<br/>
+                because of war and stuff.
+              </div>
+          </div>
+
+          <div class="story-left-right">
+
+            <div class="story-left ">
+              <div class="story-picture">
+                <div class="story-caption">
+                </div>
+              </div>
+            </div>
+
+            <div class="story-right ">
+              <div class="story-picture">
+                <div class="story-caption">
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="story-center">
+            <h2>1991</h2>
+            <div class="story-map-picture">
+              <img src="images/map3.png">
+            </div>
+              <div class="story-map-text">
+                Layal move to USA.<br/>
+                Both Jørgen and Layal turned out as complete nerds.
+              </div>
+          </div>
+
+          <div class="story-left-right">
+
+            <div class="story-left ">
+              <div class="story-picture">
+                <div class="story-caption">
+                </div>
+              </div>
+            </div>
+
+            <div class="story-right ">
+              <div class="story-picture">
+                <div class="story-caption">
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="story-center">
+            <h2>2001</h2>
+            <div class="story-map-picture">
+              <img src="images/map4.png">
+            </div>
+              <div class="story-map-text">
+                Jørgen move to London<br/>
+                and become a complete hipster.
+              </div>
+          </div>
+
+          <div class="story-left-right">
+
+            <div class="story-left ">
+              <div class="story-picture">
+                <img src="images/evil_blogger.jpg">
+                <div class="story-caption">
+                </div>
+              </div>
+            </div>
+
+            <div class="story-right ">
+              <div class="story-picture">
+                <img src="images/hipster.jpg">
+                <div class="story-caption">
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="story-center">
+            <h2>2009-2013</h2>
+            <div class="story-map-picture">
+              <img src="images/map5.png">
+            </div>
+              <div class="story-map-text">
+                Both Jørgen and Layal move to Lebanon.<br/>
+                There they were pretty cool.
+              </div>
+          </div>
+
+          <div class="story-left-right">
+
+            <div class="story-left ">
+              <div class="story-picture">
+                <img src="images/censored.jpg">
+                <div class="story-caption">
+                </div>
+              </div>
+            </div>
+
+            <div class="story-right ">
+              <div class="story-picture">
+                <img src="images/layal.jpg">
+                <div class="story-caption">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="story-center">
+            <h2>From October 2013</h2>
+            <div class="story-map-picture">
+              <img src="images/map6.png">
+            </div>
+              <div class="story-map-text">
+                We move to Norway!<br/>
+                After four years Jørgen proposed to Layal.<br/>
+                She said yes.
+              </div>
+          </div>
+
+          <div class="story-left-right">
+
+            <div class="story-left ">
+              <div class="story-picture">
+                <img src="images/mm1.jpg">
+                <div class="story-caption">
+                </div>
+              </div>
+            </div>
+
+            <div class="story-right ">
+              <div class="story-picture">
+                <img src="images/mm2.jpg">
+                <div class="story-caption">
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="story-center">
+            <h2>October 2018</h2>
+            <div class="story-map-picture">
+              <img src="images/map7.png">
+            </div>
+              <div class="story-map-text">
+                Full circle! ... or is it a love triange?<br/>
+                We get married in California!
+              </div>
+          </div>
+
+          <div class="story-left-right">
+
+            <div class="story-left ">
+              <div class="story-picture">
+                <img src="images/mm3.jpg">
+                <div class="story-caption">
+                </div>
+              </div>
+            </div>
+
+            <div class="story-right ">
+              <div class="story-picture">
+                <img src="images/mm5.jpg">
+                <div class="story-caption">
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div> -->
+
+      <!-- RSVP -->
+      <!-- <div class="section peach-bg" id="rsvp">
+        <div class="section-inner">
+          <h1>RSVP</h1>
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            "
+          >
+            <div
+              style="
+                position: relative;
+                overflow: hidden;
+                width: 640px;
+                height: 772px;
+                /*left: 170px;*/
+                margin-bottom: 100px;
+                box-shadow: 4px 4px 0 0 rgba(0,0,0,0.2);
+                /*display: flex;*/
+                /*align-items: center;*/
+                /*justify-content: center;*/
+              "
+              >
+              <div
+                style="
+                  position: relative;
+                  left: -130px;
+                  top: -178px;
+                  width: 770px;
+                  overflow: hidden;
+                "
+              >
+                <iframe 
+                  src="https://docs.google.com/forms/d/e/1FAIpQLSfUtttJ1txhz_6_fT5ALpC0KTBswe0aBvt8zYcupINbeafcaQ/viewform?embedded=true" 
+                  width="900"
+                  height="1200" 
+                  frameborder="0" 
+                  marginheight="0" 
+                  marginwidth="0">
+                    Loading...
+                </iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+
+      <style type="text/css">
+        .travel-section {
+          margin-top: 30px;
+          padding-top: 20px;
+          /*border-top: 1px solid rgba(0,0,0,0.1);*/
+          border-top: 1px solid lightblue;
+        }
+      </style>
+
+      <div class="section blue-bg" id="the-wedding">
+        <div class="section-inner">
+          <h1>The Wedding</h1>
+
+          <div class="location">
+            <div class="location-time">
+              Saturday October 27th, 2018<br/>
+              at four o'clock
+            </div>
+
+            <div class="location-place">
+              Forever & Always Farm<br/>
+              43455 Corona Cala Camino<br/>
+              Murrieta, California 92562<br/>
+              United States
+            </div>
+          </div>
+
+          <div class="map-frame">
+            <div class="map-content" id="map"></div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="section white-bg" id="travel">
+        <div class="section-inner">
+          <h1>Travel</h1>
+
+          <div class="travel-section">
+
+            <h3>LOCAL AIRPORTS</h3>
+
+            <p>
+              <strong>LOS ANGELES INTERNATIONAL AIRPORT (LAX)</strong><br/>
+              Drive Time to Murrietta, CA - 1 Hour 30 Minutes
+            </p>
+
+            <p>
+              <strong>ONTARIO CALIFORNIA INTERNATIONAL AIRPORT (ONT)</strong><br/>
+              Drive Time to Murrietta, CA - 1 Hour
+            </p>
+
+
+            <p>
+              <strong>
+                JOHN WAYNE AIRPORT/ORANGE COUNTY (SNA)
+              </strong>
+              <br/>
+              Drive Time to Murrietta, CA - 1 Hour
+            </p>
+
+            <p>
+              <strong>
+                SAN DIEGO INTERNATIONAL AIRPORT (SAN)
+              </strong>
+              <br/>
+              Drive Time to Murrietta, CA - 1 Hour 30 Minutes
+            </p>
+          </div>
+
+
+          <div class="travel-section">
+
+            <h3>CAR RENTALS</h3>
+
+            <p>
+              Car rentals companies listed are available at Los Angeles (LAX), Ontario (ONT), Orange County (SNA) and San Diego (SAN) airports. Make sure to click on Deals/Offers tab on the websites for available discounts. 
+            </p>
+
+            <p>
+              Insurance fees are an additional cost, and depend on the type of vehicle you rent. 
+            </p>
+
+            <h4>International Drivers </h4>
+            <p>
+              Bring your passport and driver’s license when renting the car<br/>
+              Driver’s from Norway or with an EU license do not need an International Driver’s license
+            </p>
+
+            <h4>Norwegians</h4>
+            <p>
+              Check out <a href="https://www.smartepenger.no/rabatter/leiebil" target="_blank">this site</a> for car rental deals<br/>
+              LO and NAF members get 10% discount at HERTZ
+            </p>
+
+            <p>
+              <strong>
+                <a href="https://www.priceline.com/m/l/drive/#/home" target="_blank">
+                  Priceline Car Rentals
+                </a>
+              </strong><br/>
+              Shop several car rental companies at once, and get the best rates on car rentals from the airport you’re landing in.<br/>
+
+              <br/>
+              
+              <strong>
+                <a href="https://www.hertz.com/" target="_blank">
+                  Hertz
+                </a>
+              </strong><br/>
+              Average - $50/day; 4-door Sedan<br/>
+
+              <br/>
+
+              <strong>
+                <a href="https://www.avis.com" target="_blank">
+                  Avis Car Rental
+                </a>
+              </strong><br/>
+              Average - $45/day; 4-door Sedan<br/>
+
+              <br/>
+
+              <strong>
+                <a href="https://www.budget.com" target="_blank">
+                  Budget Rent-A-Car
+                </a>
+              </strong><br/>
+              Average - $40/day; 4-door Sedan<br/>
+            </p>
+          </div>
+
+          <div class="travel-section">
+
+            <h3>AIRPORT SHUTTLES</h3>
+
+            <p>
+              If you’re not staying in California before/after the wedding, shuttles are a great option for travellers who don’t want to rent a car. A shuttle, or shared van, will meet you at the airport terminal and drop you off at your hotel, and vice versa. This service will need to be booked at least 1 day in advance. 
+            </p>
+
+            
+            <h4>
+              <a href="https://www.primetimeshuttle.com/" target="_blank">
+                Primetime Shuttle
+              </a>
+            </h4>
+
+            
+            <h4>
+              <a href="https://booking.jayride.com/" target="_blank">
+                JayRide
+              </a>
+            </h4>
+            
+
+            <h4>UBER</h4>
+            <p>
+              Guests travelling together can opt to share an uber from the airport to the hotel. The average cost for an Uber X is $100 per trip. 
+            </p>
+          </div>
+
+
+        </div>
+      </div>
+
+
+
+      <style type="text/css">
+
+        #where-to-stay {
+          padding-bottom: 75px;
+        }
+
+        .hotel-option-wrapper {
+          /*color: #053f3f;*/
+        }
+
+        h3 {
+          font-family: 'PT Serif', serif;
+          font-size: 36px;
+        }
+
+        .hotel-option-content {
+          font-size: 18px;
+          line-height: 24px;
+          padding-bottom: 30px;
+          opacity: .8;
+        }
+
+        .hotel-stars {
+          padding-top: 10px;
+          font-size: 30px;
+          color: #e77200;
+        }
+
+        .hotel-option-content a,
+        .hotel-option-content a:hover,
+        .hotel-option-content a:active {
+          text-decoration: none;
+        }
+
+      </style>
+
+      <div class="section blue-bg" id="where-to-stay">
+        <div class="section-inner">
+          <h1>Where To Stay</h1>
+
+          <div class="bred-text">
+            Option one and two are right next to each other. Literally.<br/>
+            Option three is a ten minute drive from option one and two.<br/>
+            We'll be providing transportation from these locations to the venue.<br/>
+            <!-- We couldn't find any four or five star hotels in the area.<br/><br/> -->
+            
+            <br/>
+
+            Airbnb has beautiful homes in the area as well.<br/>
+            If you have a larger group or want a little more luxury,<br/>
+            you can Airbnb and easily Über to the venue.<br/>
+
+            <br/>
+
+            Locations for Airbnb are Wildomar and La Cresta, California.
+
+
+          </div>
+
+          <div class="hotel-option-wrapper">
+
+            <h3>Option One
+              <div class="hotel-stars">
+                <i class="icon-star"></i>
+                <i class="icon-star"></i>
+                <i class="icon-star"></i>
+                <i class="icon-star-empty"></i>
+                <i class="icon-star-empty"></i>
+              </div>
+            </h3>
+
+            <div class="hotel-option-content">
+              Courtyard by Marriott, Temecula/Murrieta<br/>
+              25419 Madison Avenue<br/>
+              Murrieta, CA 92562<br/>
+              <br/>
+              <a 
+                href="http://www.marriott.com/hotels/travel/onttc-courtyard-temecula-murrieta/"
+                target="_blank">
+                Hotel Website
+              </a>
+              <br/>
+                +1 951-698-1300
+              <br/>
+            </div>
+          </div>
+
+          <div class="hotel-option-wrapper">
+            <h3>Option Two
+              <div class="hotel-stars">
+                <i class="icon-star"></i>
+                <i class="icon-star"></i>
+                <i class="icon-star"></i>
+                <i class="icon-star-empty"></i>
+                <i class="icon-star-empty"></i>
+              </div>
+            </h3>
+
+            <div class="hotel-option-content">
+              Residence Inn by Marriott Temecula/Murrieta<br/>
+              25407 Madison Ave<br/>
+              Murrieta, CA 92562<br/>
+              <br/>
+              <a 
+                href="http://www.marriott.com/hotels/travel/onttm-residence-inn-temecula-murrieta/"
+                target="_blank">
+                Hotel website
+              </a>
+              <br/>
+                +1 951-698-6300
+              <br/>
+            </div>
+          </div>
+
+          <div class="hotel-option-wrapper">
+            <h3>Option Three
+              <div class="hotel-stars">
+                <i class="icon-star"></i>
+                <i class="icon-star"></i>
+                <i class="icon-star"></i>
+                <i class="icon-star-empty"></i>
+                <i class="icon-star-empty"></i>
+              </div>
+            </h3>
+
+            <div class="hotel-option-content">
+              Embassy Suites by Hilton<br/>
+              Temecula Valley Wine Country<br/>
+              29345 Rancho California Rd<br/>
+              Temecula, CA 92591<br/>
+              <br/>
+              <a 
+                href="http://www.estemecula.com/"
+                target="_blank">
+                Hotel website
+              </a>
+              <br/>
+                +1 951-676-5656
+              <br/>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+<!--       <div class="section white-bg" id="registry">
+        <div class="section-inner">
+          <h1>Registry</h1>
+        </div>  
+      </div> -->
+
+      <div 
+        class="section white-bg"
+        id="questions"
+        style="padding-bottom: 75px" 
+        >
+        <div class="section-inner">
+          <h1>Question?</h1>
+
+          <div class="bred-text">
+            This happens to be the first time we plan a wedding,<br/>
+            so we might have missed some information that might be crucial to you.<br/>
+            Don't be shy, write us anytime. Even if you think it's a dumb question.<br/>
+            <br/>
+            wedding@jorgenandlayal.com
+
+          </div>
+
+        </div>
+      </div>
+
+      <div 
+        class="section white-bg"
+        id="footer"
+        >
+        <div class="section-inner">
+          <h1>&nbsp;</h1>
+        </div>  
+      </div>
+
+    </div>
+
   </div>
 
   
@@ -114,75 +1071,182 @@
 
 <script type="text/javascript">
 
+  // ======================
+  // Redirect from old site
+  // ======================
+
   if (window.location.href === 'http://jandl.wedding/') {
     window.location = "http://jorgenandlayal.com";
   }
-  
-  var container = document.getElementById('take-me');
-  var inner = document.createElement('div');
-      inner.className = 'anim-container';
 
-  container.appendChild(inner);
+  // =========
+  // Scrolling
+  // =========
 
-  var innerPlaceholder = document.createElement('div');
-      innerPlaceholder.className = 'anim-container';
+  var scroller = {
 
-  var imgPlaceholder = document.createElement('img');
-      imgPlaceholder.src = 'f1.png';
-      imgPlaceholder.setAttribute('style', 'left: 0; top: 0;');
+    options: {
+      scrollStop: 92,
+      bgAlpha: 0.2,
+      linkVal: 255,
+      hasScrolled: false
+    },
 
-      innerPlaceholder.appendChild(imgPlaceholder);
+    elems: {
+      topSection: document.getElementById('top-section'),
+      links: document.getElementsByClassName('link')
+    },
 
-  container.appendChild(innerPlaceholder);
+    init: function() {
 
-  var options = {
-    frames: 51,
-    speed: 100,
-    width: 650,
-    height: 650,
-    itemsWidth: 10,
-    delay: 2000
-  }
-
-  var img = new Image();
-  var t0 = performance.now();
-
-  img.onload = function() { 
-    // inner.innerHTML = '';
-    this.setAttribute('style', 'left: 0; top: 0;');
-    inner.appendChild(this);
-    options.img = this;
-    var t1 = performance.now();
-    var timing = Math.round(t1-t0);
-    var delay = options.delay-timing;
-    if (delay < 0) delay = 0;
-    setTimeout(function() { animate(options) }, delay)
-  }
-  img.src = 'animation-sprite-2.png';
-
-  function animate(options) {
-    var count = 0;
-    var row = 0;
-    var int = setInterval(function() {
-      if (isInt(count/options.itemsWidth) && count !== 0) row ++;
-      var mathCount = count - (row*options.itemsWidth);
-      var left = mathCount*options.width;
-      var top = row*options.height;
-      var style = 'left: -' + left + 'px; top: -' + top + 'px;';
-      options.img.setAttribute('style', style)
-      count ++;
-      if (count === options.frames) {
-        clearInterval(int);
-        var textContainer = document.createElement('div');
-            textContainer.className = 'text-container';
-            textContainer.innerHTML = 'Additional Information To Follow<br/>Contact wedding@jorgenandlayal.com';
-            container.appendChild(textContainer);
-            setTimeout(function() { textContainer.setAttribute('style', 'opacity: 1') }, 150);
+      if (!this.options.hasScrolled) {
+        this.scrollCheck();
+        this.options.hasScrolled = true;
       }
-    }, options.speed)
-  };
 
-  function isInt(n) { return n % 1 === 0; };
+      window.onscroll = function() {
+        this.scrollCheck()
+      }.bind(this);
+    },
+
+    scrollCheck: function() {
+
+
+      var scrollVal = document.body.scrollTop || document.documentElement.scrollTop;
+
+      if (scrollVal > this.options.scrollStop) {
+          
+          // Lock header
+          this.elems.topSection.className = "top-section fixed-header";
+          
+          // Set colors if page is reloaded
+          if (!this.options.hasScrolled || this.options.bgAlpha !== 1 || this.options.linkVal !== 0) {
+            this.options.bgAlpha = 1;
+            this.options.linkVal = 0;
+            this.setColors();
+          }
+
+      } else {
+
+          // Scroll header
+          this.elems.topSection.className = "top-section";
+
+          // Make background white
+          var originalAlpha = 20;
+          var maxAplha = this.options.scrollStop + originalAlpha;
+          this.options.bgAlpha = (scrollVal+originalAlpha)/maxAplha;  
+          
+          // Change link color
+          this.options.linkVal = 255 - Math.floor((scrollVal/this.options.scrollStop) * 255);
+          
+          // Set colors
+          this.setColors();
+
+      }
+
+    },
+
+    setColors: function() {
+      this.elems.topSection.style.background = 'rgba(255,255,255,' + this.options.bgAlpha + ')';
+      var cc = 'rgba(' + this.options.linkVal + ',' + this.options.linkVal + ',' + this.options.linkVal + ',1)';
+      for (var i = 0; i<this.elems.links.length; i++) { this.elems.links[i].style.color = cc }      
+    }
+  }
+
+  scroller.init()
+
+
+
+  // =============
+  // Animate thing
+  // =============
+
+  var animation = {
+    
+    options: {
+      frames: 51,
+      speed: 100,
+      width: 520,
+      height: 520,
+      itemsWidth: 10,
+      delay: 1000
+    },
+
+    elems: {},
+
+    isInt: function (n) { return n % 1 === 0; },
+
+    init: function () {
+      
+      var that = this;
+
+      this.createElems();
+      this.elems.wrapper = document.getElementById('animation-wrapper');
+      this.elems.wrapper.setAttribute('style', 'min-height:' + (window.innerHeight-150) + 'px')
+      
+      var img = new Image();
+      var t0 = performance.now();
+
+      img.onload = function() { 
+        this.setAttribute('style', 'left: 0; top: 0;');
+        that.elems.inner.appendChild(this);
+        that.options.img = this;
+        var t1 = performance.now();
+        var timing = Math.round(t1-t0);
+        var delay = that.options.delay-timing;
+        if (delay < 0) delay = 0;
+        setTimeout(function() { that.animate() }, delay)
+      }
+
+      img.src = 'animation-sprite-520.png';
+
+    },
+
+    createElems: function() {
+      this.elems.container = document.getElementById('take-me');
+      this.elems.inner = document.createElement('div');
+      this.elems.inner.className = 'anim-container';
+
+      this.elems.container.appendChild(this.elems.inner);
+
+      this.elems.innerPlaceholder = document.createElement('div');
+      this.elems.innerPlaceholder.className = 'anim-container';
+
+      this.elems.imgPlaceholder = document.createElement('img');
+      this.elems.imgPlaceholder.src = 'jl.png';
+      this.elems.imgPlaceholder.setAttribute('style', 'left: 0; top: 0;');
+
+      this.elems.innerPlaceholder.appendChild(this.elems.imgPlaceholder);
+
+      this.elems.container.appendChild(this.elems.innerPlaceholder);
+    },
+
+    animate: function() {
+      var count = 0;
+      var row = 0;
+      var int = setInterval(function() {
+        if (this.isInt(count/this.options.itemsWidth) && count !== 0) row ++;
+        var mathCount = count - (row*this.options.itemsWidth);
+        var left = mathCount*this.options.width;
+        var top = row*this.options.height;
+        var style = 'left: -' + left + 'px; top: -' + top + 'px;';
+        this.options.img.setAttribute('style', style)
+        count ++;
+        if (count === this.options.frames) {
+          clearInterval(int);
+        }
+      }.bind(this), this.options.speed)
+    }
+  }
+
+  animation.init();
+
+    
+    
+
+
+
+    
 
 </script>
 
