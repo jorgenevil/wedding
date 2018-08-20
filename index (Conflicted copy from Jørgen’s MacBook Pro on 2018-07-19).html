@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="no">
 <head>
@@ -11,6 +12,7 @@
   <script type="text/javascript">
     var map;
     function initMap() {
+
       var latLng = {lat: 33.4992545, lng: -117.3375827};
       map = new google.maps.Map(document.getElementById('map'), {
         center: latLng,
@@ -21,12 +23,15 @@
         scrollwheel: false,
         styles: mapStyle.ultra_light
       });
+
+
       var marker = new google.maps.Marker({
         position: latLng,
         map: map,
         icon: 'images/heartIcon.png',
         title: '<3'
       });
+
     };
   </script>
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyCrMFEHgsaDi08TrpKhelLPrrekG-suUI8&callback=initMap" async defer></script>
@@ -37,9 +42,11 @@
 
   <title>Layal & Jørgen</title>
   <style type="text/css">
+
     * {
       box-sizing: border-box;
     }
+
     body {
       padding: 0;
       margin: 0;
@@ -48,14 +55,18 @@
       color: #053f3f;
       /*position: relative;*/
     }
+
     pre { 
       font-family: 'Roboto', sans-serif !important;
     }
+
     .container {
        /*min-width: 800px;*/
        overflow: hidden; 
        position: relative;
     }
+
+
     p, .bred-text {
       padding-bottom: 30px;
       font-size: 18px;
@@ -63,14 +74,17 @@
       line-height: 32px;
       color: #063f3f;
     }
+
     strong {
       font-weight: 900 !important;
     }
+
     h4 {
       font-size: 24px;
       margin-bottom: 10px;
       color: #073f3f;
     }
+
     .backgroundImage {
       position: fixed;
       width: 100%;
@@ -78,16 +92,19 @@
       left: 0;
       top: 0;
     }
+
     .backgroundImage img {
       width: 100%;
       height: 100%;
     }
+
     #take-me {
       position: relative;
       width: 520px;
       height: 520px;
       margin: auto;
     }
+
     .anim-container {
       position: absolute;
       top: 0;
@@ -96,9 +113,11 @@
       height: 520px;
       overflow: hidden;
     }
+
     .anim-container img {
       position: absolute;
     }
+
     .text-container {
       position: absolute;
       right: 0;
@@ -111,6 +130,7 @@
       transition: opacity 1s;
       line-height: 1.5;
     }
+
 /*    @media screen and (max-width: 700px) and (min-width: 600px) {
       #take-me { zoom: 0.8; }
     }
@@ -118,12 +138,15 @@
 /*    @media screen and (max-width: 599px) and (min-width: 500px) {
       #take-me { zoom: 0.7; }
     }
+
     @media screen and (max-width: 499px) and (min-width: 400px) {
       #take-me { zoom: 0.6; }
     }
+
     @media screen and (max-width: 399px) {
       #take-me { zoom: 0.5; }
     }*/
+
     .top-section {
       position: absolute;
       top: 0;
@@ -136,21 +159,26 @@
       /*font-family: sans-serif;*/
       font-weight: 300;
       z-index: 999;
+
       box-shadow: 0 0 1px 0px rgb(1, 46, 53);
     }
+
     .fixed-header {
       position: fixed;
       top: -92px;
     }
+
     .header {
       padding: 25px;
     }
+
     .link-bar {
       border-top: 1px solid;
       display: flex;
       align-items: center;
       justify-content: center;
     }
+
     .link-bar .link {
       padding: 10px 20px;
       cursor: pointer;
@@ -158,35 +186,43 @@
       opacity: .6;
       transition: opacity 250ms ease;
     }
+
     a.link {
       text-decoration: none;
     }
+
     a, a:active, a:hover {
       text-decoration: none;
       color: #1457c3;
     }
+
     .link-bar .link:hover {
       opacity: 1;
     }
+
     .middle-section {
         position: relative;
         top: 170px; 
     }
+
     .animation-wrapper {
       display: flex;
       align-items: center;
       justify-content: center;
     }
+
     .section {
       position: relative;
       text-align: center;
       padding: 20px;
     }
+
     .section h1 {
       font-family: 'PT Serif', serif;
       font-size: 68px;
       /*color: #053f3f;*/
     }
+
     .section h2 {
       font-size: 36px;
       color: white;
@@ -198,11 +234,13 @@
       /*font-family: sans-serif;*/
       text-shadow: -1px 1px 2px rgba(0,0,0,0.5);
     }
+
     .section-inner {
       position: relative;
       max-width: 980px;
       margin: auto;
     }
+
     .story-left-right {
       position: relative;
       margin-bottom: 75px;
@@ -210,6 +248,7 @@
       /*margin-top: -24px;*/
     /*padding-top: 20px;*/
     }
+
 /*    .story-left-right:before {
       content: '';
       position: absolute;
@@ -220,6 +259,7 @@
       opacity: .2;
       top: 0;
     }*/
+
     .story-left,
     .story-right {
       display: inline-block;
@@ -231,18 +271,21 @@
       position: relative;
       z-index: 100;
     }
+
     .story-left-0,
     .story-right-1,
     .story-left-2 {
       padding-right: 20px;
       transform: rotate(-1deg);    
     }
+
     .story-right-0,
     .story-left-1,
     .story-right-2 {
       padding-left: 20px;
       transform: rotate(1deg);
     }
+
 /*    .story-left:last-child,
     .story-right:last-child {
       padding-bottom: 0;
@@ -257,19 +300,24 @@
       top: 0;
       z-index: -1;
     }
+
     .story-left:after {
       background-color: red;
     }
+
     .story-right:after { 
       background-color: blue;
     }*/
+
     .story-center {
       position: relative;
       padding: 20px;
     }
+
     .story-map-picture img {
       width: 100%;
     }
+
     .story-picture {
       max-width: 100%;
       padding: 10px;
@@ -278,23 +326,31 @@
       box-shadow: 4px 4px 0 0 rgba(0,0,0,0.2);
       border-radius: 2px;
     }
+
     .story-picture img {
       max-width: 100%;
     }
+
     .story-caption {
+
     }
+
     .white-bg {
       background: white;
     }
+
     .offwhite-bg {
       background-color: #f9f9f9;
     }
+
     .blue-bg {
       background: lightblue;
     }
+
     .peach-bg {
       background: peachpuff;
     }
+
     .story-text {
       margin-bottom: 70px;
       font-size: 20px;
@@ -302,6 +358,7 @@
       margin-top: 10px;
       line-height: 1.75;
     }
+
     .story-map-text {
       font-size: 18px;
       line-height: 1.6;
@@ -313,6 +370,7 @@
       color: gray;
       text-align: left;
     }
+
 /*    #map {
       position: absolute;
       width: 100%;
@@ -320,6 +378,7 @@
       background-color: white;
     }
 */
+
   .map-frame {
     width: 100%;
     /* height: 100%; */
@@ -329,6 +388,7 @@
     padding: 0px;
     box-sizing: border-box;
   }
+
   .map-content {
     position: absolute;
     width: 100%;
@@ -341,6 +401,7 @@
       /*background-color: black;*/
       /*color: #FFF;*/
   }
+
   .location {
     text-align: center;
     margin-bottom: 70px;
@@ -348,13 +409,16 @@
     line-height: 1.5;
     /*text-shadow: -1px 1px 0 rgba(0,0,0,0.2)*/
   }
+
   .location-time {
      font-size: 28px;
      margin-bottom: 50px;
   }
+
   .location-place {
     font-size: 20px;
   }
+
   </style>
 </head>
 
@@ -390,16 +454,6 @@
       </div>
 
 
-   
-
-      <!-- OUR STORY -->
-      <div class="section offwhite-bg" id="our-story">
-        <div class="section-inner">
-          <h1>Our Story</h1>
-          <div id="sory-container"></div>
-        </div>
-      </div>
-
       <!-- RSVP -->
       <div class="section peach-bg" id="rsvp">
         <div class="section-inner">
@@ -416,7 +470,7 @@
                 position: relative;
                 overflow: hidden;
                 width: 640px;
-                height: 1350px;
+                height: 1020px;
                 /*left: 170px;*/
                 margin-bottom: 100px;
                 box-shadow: 4px 4px 0 0 rgba(0,0,0,0.2);
@@ -437,7 +491,7 @@
                 <iframe 
                   src="https://docs.google.com/forms/d/e/1FAIpQLSfUtttJ1txhz_6_fT5ALpC0KTBswe0aBvt8zYcupINbeafcaQ/viewform?embedded=true" 
                   width="900"
-                  height="1600" 
+                  height="1200" 
                   frameborder="0" 
                   marginheight="0" 
                   marginwidth="0">
@@ -446,6 +500,14 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>      
+
+      <!-- OUR STORY -->
+      <div class="section offwhite-bg" id="our-story">
+        <div class="section-inner">
+          <h1>Our Story</h1>
+          <div id="sory-container"></div>
         </div>
       </div>
 
@@ -619,34 +681,39 @@
 
 
       <style type="text/css">
+
         #where-to-stay {
           padding-bottom: 75px;
         }
+
         .hotel-option-wrapper {
           /*color: #053f3f;*/
         }
+
         h3 {
           font-family: 'PT Serif', serif;
           font-size: 36px;
         }
+
         .hotel-option-content {
           font-size: 18px;
           line-height: 24px;
           padding-bottom: 30px;
           opacity: .8;
-          max-width: 550px;
-          margin: auto;
         }
+
         .hotel-stars {
           padding-top: 10px;
           font-size: 30px;
           color: #e77200;
         }
+
         .hotel-option-content a,
         .hotel-option-content a:hover,
         .hotel-option-content a:active {
           text-decoration: none;
         }
+
       </style>
 
       <div class="section blue-bg" id="where-to-stay">
@@ -696,12 +763,6 @@
               </a>
               <br/>
                 +1 951-698-1300
-              <br/>
-              <br/>              
-              We have a limited number of block rate rooms for check-in on Friday, October 26, 2018 and check-out on Sunday, October 28, 2018. To book with the group rate, you must call the hotel directly or call Marriott Central Reservations (888.236.2427).
-              <br/>
-              <br/>              
-              Reference the hotel name (Courtyard by Marriott Temecula-Murrieta) and the block code ‘Hasrouni and Ekvoll Wedding’.
               <br/>
             </div>
           </div>
@@ -809,37 +870,50 @@
 </body>
 
 <script type="text/javascript">
+
   // ======================
   // Redirect from old site
   // ======================
+
   if (window.location.href === 'http://jandl.wedding/') {
     window.location = "http://jorgenandlayal.com";
   }
+
   // =========
   // Scrolling
   // =========
+
   var scroller = {
+
     options: {
       scrollStop: 92,
       bgAlpha: 0.2,
       linkVal: 255,
       hasScrolled: false
     },
+
     elems: {
       topSection: document.getElementById('top-section'),
       links: document.getElementsByClassName('link')
     },
+
     init: function() {
+
       if (!this.options.hasScrolled) {
         this.scrollCheck();
         this.options.hasScrolled = true;
       }
+
       window.onscroll = function() {
         this.scrollCheck()
       }.bind(this);
     },
+
     scrollCheck: function() {
+
+
       var scrollVal = document.body.scrollTop || document.documentElement.scrollTop;
+
       if (scrollVal > this.options.scrollStop) {
           
           // Lock header
@@ -851,9 +925,12 @@
             this.options.linkVal = 0;
             this.setColors();
           }
+
       } else {
+
           // Scroll header
           this.elems.topSection.className = "top-section";
+
           // Make background white
           var originalAlpha = 20;
           var maxAplha = this.options.scrollStop + originalAlpha;
@@ -864,18 +941,26 @@
           
           // Set colors
           this.setColors();
+
       }
+
     },
+
     setColors: function() {
       this.elems.topSection.style.background = 'rgba(255,255,255,' + this.options.bgAlpha + ')';
       var cc = 'rgba(' + this.options.linkVal + ',' + this.options.linkVal + ',' + this.options.linkVal + ',1)';
       for (var i = 0; i<this.elems.links.length; i++) { this.elems.links[i].style.color = cc }      
     }
   }
+
   scroller.init()
+
+
+
   // =============
   // Animate thing
   // =============
+
   var animation = {
     
     options: {
@@ -886,17 +971,22 @@
       itemsWidth: 10,
       delay: 1000
     },
+
     elems: {},
+
     isInt: function (n) { return n % 1 === 0; },
+
     init: function () {
       
       var that = this;
+
       this.createElems();
       this.elems.wrapper = document.getElementById('animation-wrapper');
       this.elems.wrapper.setAttribute('style', 'min-height:' + (window.innerHeight-150) + 'px')
       
       var img = new Image();
       var t0 = performance.now();
+
       img.onload = function() { 
         this.setAttribute('style', 'left: 0; top: 0;');
         that.elems.inner.appendChild(this);
@@ -907,21 +997,30 @@
         if (delay < 0) delay = 0;
         setTimeout(function() { that.animate() }, delay)
       }
+
       img.src = 'animation-sprite-520.png';
+
     },
+
     createElems: function() {
       this.elems.container = document.getElementById('take-me');
       this.elems.inner = document.createElement('div');
       this.elems.inner.className = 'anim-container';
+
       this.elems.container.appendChild(this.elems.inner);
+
       this.elems.innerPlaceholder = document.createElement('div');
       this.elems.innerPlaceholder.className = 'anim-container';
+
       this.elems.imgPlaceholder = document.createElement('img');
       this.elems.imgPlaceholder.src = 'jl.png';
       this.elems.imgPlaceholder.setAttribute('style', 'left: 0; top: 0;');
+
       this.elems.innerPlaceholder.appendChild(this.elems.imgPlaceholder);
+
       this.elems.container.appendChild(this.elems.innerPlaceholder);
     },
+
     animate: function() {
       var count = 0;
       var row = 0;
@@ -939,9 +1038,14 @@
       }.bind(this), this.options.speed)
     }
   }
+
   animation.init();
+
     
     
+
+
+
   var cont = document.getElementById('sory-container');
   var storyData = [
     {
@@ -1003,8 +1107,10 @@
       rightImgs: [
         "images/jorgen/jorgo-lebanon1.jpg",
         "images/layal/lalo-lebanon.jpg"
+
         ]
     },
+
     {
       mapHeader: "From October 2013",
       map: "images/map6.png",
@@ -1027,50 +1133,66 @@
     },
   ]
   storyData.forEach(function(s) {
+
     console.log('s', s)
+
     var center = document.createElement('div')
         center.className = "story-center"
         cont.appendChild(center)
+
     var header = document.createElement('h2')
         header.innerHTML = s.mapHeader;
         center.appendChild(header)
+
     var storyMap = document.createElement('div')
         storyMap.className = "story-map-picture";
         center.appendChild(storyMap)
+
     var storyMapImg = document.createElement('img')
         storyMapImg.src = s.map;
         storyMap.appendChild(storyMapImg)
+
     var storyMapText = document.createElement('pre')
         storyMapText.className = "story-map-text";
         storyMapText.innerHTML = s.mapText;
         center.appendChild(storyMapText)
+
     var storyLeftRight = document.createElement('div')
         storyLeftRight.className = 'story-left-right';
         cont.appendChild(storyLeftRight);
+
+
     s.leftImgs.forEach(function(leftImg, index) {
       var storyLeft = document.createElement('div');
           storyLeft.className = "story-left story-left-" + index;
           storyLeftRight.appendChild(storyLeft)
+
       var storyLeftPicture = document.createElement('div')
           storyLeftPicture.className = "story-picture";
           storyLeft.appendChild(storyLeftPicture)
+
       var storyLeftPictureImg = document.createElement('img')
           storyLeftPictureImg.src = leftImg;
           storyLeftPicture.appendChild(storyLeftPictureImg)
     })
+
     s.rightImgs.forEach(function(rightImg, index) {
       var storyRight = document.createElement('div');
           storyRight.className = "story-right story-right-" + index;
           storyLeftRight.appendChild(storyRight)
+
       var storyRightPicture = document.createElement('div')
           storyRightPicture.className = "story-picture";
           storyRight.appendChild(storyRightPicture)
+
       var storyRightPictureImg = document.createElement('img')
           storyRightPictureImg.src = rightImg;
           storyRightPicture.appendChild(storyRightPictureImg)
     })     
   })
+
 </script>
 
 </html>
+
 
